@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
+include $_SERVER['DOCUMENT_ROOT']."/controle/ControleContato.class.php";
 $cContato = new ControleContato();
 
 if(isset($_GET['id'])){
@@ -11,7 +11,7 @@ $contatos = $cContato->listarTodos();
 <html lang='pt-br'>
 <head>
 <meta charset='utf-8'>
-<title>Agenda de Contatos</title>
+<title>Meus CDs</title>
 </head>
 <body>
 <?php

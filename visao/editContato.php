@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/agenda/controle/ControleContato.class.php";
+include $_SERVER['DOCUMENT_ROOT']."/controle/ControleContato.class.php";
 $cContato = new ControleContato();
 
 
@@ -13,7 +13,7 @@ if(isset($_POST['botao']) && $_POST['botao']=="Editar"){
 <html lang='pt-br'>
 <head>
 <meta charset='utf-8'>
-<title>Agenda de Contatos</title>
+<title>Meus CDs</title>
 </head>
 <body>
 <form method='post' action='editContato.php'>

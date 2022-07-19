@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
-	include $_SERVER['DOCUMENT_ROOT']."/controle/ControleEstilo.class.php";
-	$cControle = new ControleEstilo();
+	include $_SERVER['DOCUMENT_ROOT']."/controle/ControleGravadora.class.php";
+	$cControle = new ControleGravadora();
 	$cControle->inserir($_POST);
 }
 ?>
@@ -11,7 +11,7 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 <title>Meus CDs</title>
 </head>
 <body>
-<form method='post' action='cadEstilo.php'>
+<form method='post' action='cadGravadora.php'>
 	Nome: <input type='text' name='nome'>
 	<br>
 	<input type='submit' name='botao' value='Adicionar'>
