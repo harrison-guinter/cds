@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 
 	class Gravadora{
 		private $idGravadora;
@@ -42,8 +42,8 @@ include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
 				$gravadoras = array();
 				foreach($resultados as $resultado){
 					$gravadora = new Gravadora();
-					$gravadora->setIdGravadora($resultado['id']);
-					$gravadora->setIdentificacao($resultado['identificacao']);
+					$gravadora->setIdGravadora($resultado[0]);
+					$gravadora->setIdentificacao($resultado[1]);
 					$gravadoras[] = $gravadora;
 				}
 				return $gravadoras;

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
+require_once  $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 
 	class Artista{
 		private $idArtista;
@@ -63,17 +63,24 @@ include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
 				return false;
 			}
 		}
-		
-		public function excluir(){
+
+		public function buscarIdsPeloNome($nome) {
 			$con = new MySQL();
-			$sql = "DELETE FROM artista WHERE idArtista = $this->idArtista";
-			$con->executa($sql);
-		}
-		
-		public function alterar(){
-			$con = new MySQL();
-			$sql = "UPDATE artista SET nome = '$this->nome', numero = '$this->numero' WHERE idArtista = $this->idArtista";
-			$con->executa($sql);
+			$sql = "SELECT idArtista FROM artista WHERE nome LIKE '%".$nome."%'";
+			$result = $con->executa($sql);
+			if(!empty($result)){
+				$ids = array();
+				foreach($result as $resultado){
+					$artista = new Artista();
+					$artista->setIdArtista($resultado['idArtista']);
+					$artistas[] = $artista;
+				}
+				return $artistas;
+				
+			
+			} else {
+				return false;
+			}
 		}
 		
 		

@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
-	include $_SERVER['DOCUMENT_ROOT']."/controle/ControleArtista.class.php";
+	include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleArtista.class.php";
 	$cControle = new ControleArtista();
 	$cControle->inserir($_POST);
 }
@@ -12,7 +12,7 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 </head>
 <body>
 <form method='post' action='cadArtista.php'>
-	Nome: <input type='text' name='nome'>
+	Nome: <input required  type='text' name='nome'>
 	<br>
 	<input type='submit' name='botao' value='Adicionar'>
 </form>

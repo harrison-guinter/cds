@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
-	include $_SERVER['DOCUMENT_ROOT']."/controle/ControleGravadora.class.php";
+	include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleGravadora.class.php";
 	$cControle = new ControleGravadora();
 	$cControle->inserir($_POST);
 }
@@ -12,7 +12,7 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 </head>
 <body>
 <form method='post' action='cadGravadora.php'>
-	Nome: <input type='text' name='nome'>
+	Nome: <input  type='text' name='nome' required >
 	<br>
 	<input type='submit' name='botao' value='Adicionar'>
 </form>

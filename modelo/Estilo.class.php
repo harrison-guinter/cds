@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
+require_once  $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 
 	class Estilo{
 		private $idEstilo;
@@ -42,8 +42,8 @@ include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
 				$estilos = array();
 				foreach($resultados as $resultado){
 					$estilo = new Estilo();
-					$estilo->setIdEstilo($resultado['id']);
-					$estilo->setIdentificacao($resultado['identificacao']);
+					$estilo->setIdEstilo($resultado[0]);
+					$estilo->setIdentificacao($resultado[1]);
 					$estilos[] = $estilo;
 				}
 				return $estilos;
@@ -51,31 +51,6 @@ include $_SERVER['DOCUMENT_ROOT']."/db/MySQL.class.php";
 				return false;
 			}
 		}
-		
-		public function listarUm(){
-			$con = new MySQL();
-			$sql = "SELECT * FROM estilo WHERE id = $this->id";
-			$resultado = $con->consulta($sql);
-			if(!empty($resultado)){
-					$this->identificacao = $resultado[0]['identificacao'];
-					
-			}else{
-				return false;
-			}
-		}
-		
-		public function excluir(){
-			$con = new MySQL();
-			$sql = "DELETE FROM estilo WHERE id = $this->id";
-			$con->executa($sql);
-		}
-		
-		public function alterar(){
-			$con = new MySQL();
-			$sql = "UPDATE estilo SET identificacao = '$this->identificacao', WHERE id = $this->id";
-			$con->executa($sql);
-		}
-		
 		
 	}
 ?>
