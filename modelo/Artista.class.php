@@ -71,6 +71,20 @@ require_once  $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 				return false;
 			}
 		}
+
+		public function listarUm($id){
+			$con = new MySQL();
+			$sql = "SELECT * FROM artista WHERE idArtista = $id";
+			
+			$resultado = $con->consulta($sql);
+			
+			if(!empty($resultado)){
+					$this->nome = $resultado[0]['nome'];
+					
+			}else{
+				return false;
+			}
+		}
 		
 		
 	}

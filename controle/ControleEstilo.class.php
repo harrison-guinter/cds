@@ -15,6 +15,11 @@ class ControleEstilo{
 		return $estilos;
 	}
 	
+	public function listarUm($id){
+		$estilo = new Estilo($id,null,null);
+		$estilo->listarUm($id);
+		return $estilo;
+	}
 	
 }
 

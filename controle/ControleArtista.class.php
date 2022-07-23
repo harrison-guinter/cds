@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']."/cds/modelo/Artista.class.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/cds/modelo/Artista.class.php";
 
 class ControleArtista{
 	
@@ -14,6 +14,13 @@ class ControleArtista{
 		$artistas = $artista->listarTodos();
 		return $artistas;
 	}
+	
+	public function listarUm($id){
+		$artista = new Artista($id,null,null);
+		$artista->listarUm($id);
+		return $artista;
+	}
+	
 	
 	public function buscarIdsPeloNome($nome) {
 		$artista = new Artista(null, $nome);

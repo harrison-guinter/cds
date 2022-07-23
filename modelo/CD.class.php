@@ -3,12 +3,12 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 
 	class CD{
-		private $id;
-		private $titulo;
-		private $ano;
-		private $idGravadora;
-		private $idArtista;
-		private $idEstilo;
+		public $id;
+		public $titulo;
+		public $ano;
+		public $idGravadora;
+		public $idArtista;
+		public $idEstilo;
 		
 		public function __construct($id = null, $titulo = null, $ano = null,  $idGravadora = null, $idArtista = null, $idEstilo = null){
 			$this->id = $id;
@@ -56,9 +56,15 @@ require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 			if(!empty($resultados)){
 				$cds = array();
 				foreach($resultados as $resultado){
-					$cd = new Artista();
-					$cd->setId($resultado['id']);
-					$cd->setTitulo($resultado['titulo']);
+					// echo "<pre>"; print_r($resultado); "</pre>";
+					
+					$cd['id'] = $resultado[0];
+					$cd['titulo'] = $resultado[1];
+					$cd['ano'] = $resultado[2];
+					$cd['idArtista'] = $resultado[3];
+					$cd['idGravadora'] = $resultado[4];
+					$cd['idEstilo'] = $resultado[5];
+
 					$cds[] = $cd;
 				}
 				return $cds;

@@ -1,6 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/cds/modelo/CD.class.php";
-include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleArtista.class.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleArtista.class.php";
 
 class ControleCD{
 
@@ -16,7 +16,7 @@ class ControleCD{
 			$sql = $sql." gravadora_idGravadora = ".$dados['idGravadora']." AND";
 		}
 		if($dados['idEstilo']) {
-			$sql = $sql." estilo_idEstilo = ".$dados['idEstilo'];
+			$sql = $sql." estilo_idEstilo = ".$dados['idEstilo']." AND ";
 		}
 		if($dados['artista']) {
 			$controleArtista = new ControleArtista();
@@ -36,7 +36,7 @@ class ControleCD{
 			$sql = $sql." TRUE";
 		}
 
-		echo $sql;
+		return $sql;
 	} 
 	
 	public function inserir($dados){

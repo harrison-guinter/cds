@@ -1,12 +1,16 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleGravadora.class.php";
 include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleEstilo.class.php";
+include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleArtista.class.php";
+include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleCD.class.php";
 
 $controleGravadora = new ControleGravadora();
 $listaGravadoras =  $controleGravadora->listarTodos();
 
 $controleEstilo = new ControleEstilo();
 $listaEstilos =  $controleEstilo->listarTodos();
+
+$controleArtista = new ControleArtista();
 
 
 ?>
@@ -53,20 +57,71 @@ $listaEstilos =  $controleEstilo->listarTodos();
 
 	<br>
 
-	<input type='submit' name='botao' value='Pesquisar'>
+	<input type='submit' name='botao' value='Filtrar'>
 </form>
 </body>
 </html>
 
 <?php
-    if(isset($_POST['botao']) && $_POST['botao']=="Pesquisar"){
-        include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleCD.class.php";
+    if(isset($_POST['botao']) && $_POST['botao']=="Filtrar"){
+        $cdObject = new CD();
+
         $cControle = new ControleCD();
 
         $sql = $cControle->criarQuery($_POST);
-        $cds = $cControle->listarTodos();
+
+        $cds = $cdObject->pesquisar($sql);
+
+        ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Ano</th>
+                    <th>Gravadora</th>
+                    <th>Artista</th>
+                    <th>Estilo</th>
+                </tr>
+        </thead>
+
+        <?php 
     
+            //  echo "<pre>"; print_r($cds); "</pre>";
+             if($cds) {
+                foreach ($cds as $cd) {
+
+                // echo "<pre>"; print_r($cd); "</pre>";
+                echo "<tr>";
+                echo "   <td>".$cd['titulo']."</td>";
+                echo "   <td>".$cd['ano']."</td>";
+                echo "   <td>".$controleGravadora->listarUm($cd['idGravadora'])->getIdentificacao()."</td>";
+                echo "   <td>".$controleArtista->listarUm($cd['idArtista'])->getNome()."</td>";
+                echo "   <td>".$controleEstilo->listarUm($cd['idEstilo'])->getIdentificacao()."</td>";
+                echo "</tr>";
+                // echo $controleGravadora->listarUm($cd['idGravadora']);
+             }
+            } else {
+                echo '<tr> <td>Não há CDs para os filtros correspondentes!</td><td></td><td></td><td></td><td></td> </tr>';
+            }
+            
+             ?>
+    
+        </table>
+        <a href='../index.html'>Voltar</a>
+        
+        <?php
     }
 ?>
 
-<a href='../index.html'>Voltar</a>
+<style>
+       
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    
+</style>

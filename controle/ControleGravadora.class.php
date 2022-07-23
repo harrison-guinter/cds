@@ -14,6 +14,13 @@ class ControleGravadora{
 		$gravadoras = $gravadora->listarTodos();
 		return $gravadoras;
 	}
+	
+	public function listarUm($id){
+		$gravadora = new Gravadora($id,null,null);
+		$gravadora->listarUm($id);
+		return $gravadora;
+	}
+	
 
 	
 }

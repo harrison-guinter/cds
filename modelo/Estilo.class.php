@@ -54,7 +54,7 @@ require_once  $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 		
 		public function listarUm($id){
 			$con = new MySQL();
-			$sql = "SELECT * FROM estilo WHERE id = $id";
+			$sql = "SELECT * FROM estilo WHERE idEstilo = $id";
 			$resultado = $con->consulta($sql);
 			if(!empty($resultado)){
 					$this->identificacao = $resultado[0]['identificacao'];

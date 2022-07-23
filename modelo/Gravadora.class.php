@@ -52,9 +52,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 			}
 		}
 		
-		public function listarUm(){
+		public function listarUm($id){
 			$con = new MySQL();
-			$sql = "SELECT * FROM gravadora WHERE id = $this->id";
+			$sql = "SELECT * FROM gravadora WHERE idGravadora = $id";
 			$resultado = $con->consulta($sql);
 			if(!empty($resultado)){
 					$this->identificacao = $resultado[0]['identificacao'];
@@ -62,18 +62,6 @@ require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 			}else{
 				return false;
 			}
-		}
-		
-		public function excluir(){
-			$con = new MySQL();
-			$sql = "DELETE FROM gravadora WHERE id = $this->id";
-			$con->executa($sql);
-		}
-		
-		public function alterar(){
-			$con = new MySQL();
-			$sql = "UPDATE gravadora SET identificacao = '$this->identificacao', WHERE id = $this->id";
-			$con->executa($sql);
 		}
 		
 		

@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleGravadora.class.php";
 include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleArtista.class.php";
-include $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleEstilo.class.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/cds/controle/ControleEstilo.class.php";
 
 
 if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
