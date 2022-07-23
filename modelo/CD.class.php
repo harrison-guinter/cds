@@ -52,8 +52,21 @@ require_once $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 
 		public function pesquisar($selectQuery){
 			$con = new MySQL(); 
-			$con->executa($selectQuery);
+			$resultados = $con->consulta($selectQuery);
+			if(!empty($resultados)){
+				$cds = array();
+				foreach($resultados as $resultado){
+					$cd = new Artista();
+					$cd->setId($resultado['id']);
+					$cd->setTitulo($resultado['titulo']);
+					$cds[] = $cd;
+				}
+				return $cds;
+			}else{
+				return false;
+			}
 		}
-		
+
+	
 	}
 ?>
