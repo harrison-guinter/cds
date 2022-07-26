@@ -11,11 +11,58 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 <title>Meus CDs</title>
 </head>
 <body>
-<form method='post' action='cadArtista.php'>
-	Nome: <input required  type='text' name='nome'>
-	<br>
-	<input type='submit' name='botao' value='Adicionar'>
-</form>
-<a href='../index.html'>Voltar</a>
+	<div class="container">
+		<h1 class="title">Cadastro de Artistas</h1>
+		<form method='post' action='cadArtista.php'>
+			<label>Nome:</label> <input required  type='text' name='nome'>
+			<br>
+			<div class="botoes">
+				<a href='../index.html'>Voltar</a>
+				<input type='submit' name='botao' value='Adicionar'>
+			</div>
+		</form>
+		
+	</div>
 </body>
 </html>
+
+
+<style>
+	body {
+		background-color: antiquewhite;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	a {
+		margin: 1.2em 0 0 0 !important;
+	}
+
+	input[type=submit] {
+		margin: 1em 0 0 0;
+	}
+
+	input[type=submit], a {
+		cursor: pointer;
+		font-size: 1em;
+		border: none;
+		background-color: #199319;
+		color: white;
+		text-decoration: none;
+		padding: 0.4em;
+	}
+
+	.title {
+		padding-left: 1em;
+		text-align: center;
+	}
+
+	.container {
+		display: flex;
+		place-items: center;
+		flex-direction: column;
+	}
+
+	.botoes {
+		text-align: right;
+	}
+</style>

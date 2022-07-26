@@ -4,15 +4,73 @@
     <title>Meus CDs</title>
   </head>
   <body>
-    <h1>Meus CDs</h1>
-    <a href="visao/cadEstilo.php">Adicionar Estilo</a>
-    <br />
-    <a href="visao/cadArtista.php">Adicionar Artista</a>
-    <br />
-    <a href="visao/cadGravadora.php">Adicionar Gravadora</a>
-    <br />
-    <a href="visao/cadCD.php">Adicionar CDs</a>
-    <br />
-    <a href="visao/filtroCD.php">Pesquisar CDs</a>
+    <div class="container">
+    <h1 class="title">Meus CDs</h1>
+  
+      <ul class="list">
+        <li class="option">
+          <a href="visao/cadEstilo.php">Adicionar Estilo</a>
+        </li>
+        <li class="option">
+          <a href="visao/cadArtista.php">Adicionar Artista</a>
+        </li>
+        <li class="option">
+          <a href="visao/cadGravadora.php">Adicionar Gravadora</a>
+        </li>
+        <li  href="visao/cadCD.php" class="option">
+          <a href="visao/cadCD.php">Adicionar CDs</a>
+        </li>
+        <li class="option">
+          <a href="visao/filtroCD.php">Pesquisar CDs</a>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
+
+<style>
+  body {
+    background-color: antiquewhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  a:link { text-decoration: none; }
+  a:visited { text-decoration: none; }
+  a:hover { text-decoration: none; }
+  a:active { text-decoration: none; }
+  a {
+    color: black;
+    font-weight: bolder;
+  }
+
+  .container {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+  }
+
+  .list {
+    padding: 0;
+    flex-direction: column;
+    list-style-type:none;
+  }
+
+  .title {
+    padding-left: 1em;
+    text-align: center;
+  }
+  .option {
+    background-color: rgb(215, 242, 250);
+    text-align: center;
+    width: 100%;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 4px;
+    border: 1px solid black;
+  }
+  .option:hover {
+    background-color: rgb(179, 237, 255);
+  }
+
+
+</style>

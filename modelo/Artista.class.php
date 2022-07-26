@@ -58,6 +58,7 @@ require_once  $_SERVER['DOCUMENT_ROOT']."/cds/db/MySQL.class.php";
 			$sql = "SELECT idArtista FROM artista WHERE nome LIKE '%".$nome."%'";
 			$result = $con->executa($sql);
 			if(!empty($result)){
+				$artistas = array();
 				$ids = array();
 				foreach($result as $resultado){
 					$artista = new Artista();

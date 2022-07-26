@@ -78,6 +78,6 @@ $listaEstilos =  $controleEstilo->listarTodos();
 
 	<input type='submit' name='botao' value='Adicionar'>
 </form>
-<a href='../index.html'>Voltar</a>
+<a href='../index.html'><button class="botao-voltar">Voltar</button></a>
 </body>
 </html>
