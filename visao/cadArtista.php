@@ -34,7 +34,18 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 	}
 
 	a {
-		margin: 1.2em 0 0 0 !important;
+		margin: 1.2em 0.5em 0 0 !important;
+	}
+
+	input {
+		border: none;
+		border-radius: 4px;
+		height: 2em;
+	}
+
+	input:focus-visible {
+		border: none;
+		border-radius: 4px;
 	}
 
 	input[type=submit] {
@@ -45,6 +56,7 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 		cursor: pointer;
 		font-size: 1em;
 		border: none;
+		border-radius: 4px;
 		background-color: #199319;
 		color: white;
 		text-decoration: none;
@@ -63,6 +75,9 @@ if(isset($_POST['botao']) && $_POST['botao']=="Adicionar"){
 	}
 
 	.botoes {
+		display: flex;
+		place-items: end;
+		justify-content: end;
 		text-align: right;
 	}
 </style>
