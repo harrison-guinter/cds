@@ -17,11 +17,14 @@ class MySQL{
 		return $result;
 	}
 	public function consulta($sql){
+		$link = mysqli_connect("localhost", "root", "", "cds");
 		$result = $this->connection->query($sql);
 		$item = array();
 		$data = array();
-		while($item = mysqli_fetch_array($result)){
-			$data[] = $item;
+		if (mysqli_query($link, $sql)) {
+			while($item = mysqli_fetch_array($result)){
+				$data[] = $item;
+			}
 		}
 		return $data;
 		}
